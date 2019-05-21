@@ -1,8 +1,7 @@
 import React from "react";
-import Head from "../src/components/head";
+import Head from "~/components/head";
 
 export default function Home() {
-
   return (
     <div>
       <Head />
