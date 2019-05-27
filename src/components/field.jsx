@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Field({ children }) {
   return (
-    <div className="root">
+    <div className="Field">
       <style jsx>{`
-        .root {
+        .Field {
           width: 30px;
           height: 30px;
           border: 2px solid #222;

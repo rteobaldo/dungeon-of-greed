@@ -2,17 +2,17 @@ import React from "react";
 
 import Field from "./field";
 
-export default function Level() {
+export default function Level({ children }) {
   const el = [];
 
   for (let i = 0; i < 900; i++) {
-    el.push(<Field />);
+    el.push(<Field key={i} />);
   }
 
   return (
-    <div className="root">
+    <div className="Level">
       <style jsx>{`
-        .root {
+        .Level {
           position: relative;
           display: grid;
           grid-template-columns: repeat(${30}, 30px);
@@ -21,6 +21,7 @@ export default function Level() {
         }
       `}</style>
 
+      {children}
       {el}
     </div>
   );

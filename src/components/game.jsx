@@ -2,12 +2,16 @@ import React from "react";
 
 import Level from "~/components/level";
 
-export default function Game() {
+export default function Game({ children }) {
   return (
-    <div className="root">
-      <style jsx>{``}</style>
+    <div className="Game">
+      <style jsx>{`
+        .Game {
+          position: relative;
+        }
+      `}</style>
 
-      <Level />
+      <Level>{children}</Level>
     </div>
   );
 }
