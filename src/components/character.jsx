@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 
-import useCharacter from "~/lib/use-character";
+import useCharacterState from "~/lib/use-character-state";
 
 export default function Character() {
-  const { character, _ } = useCharacter();
+  const { character, _ } = useCharacterState();
 
   return (
     <div className="Character">
@@ -21,7 +21,11 @@ export default function Character() {
 
       <style jsx>{`
         .Character {
-          transform: translate3d(${character.position * 30});
+          transform: translate3d(
+            ${character.position[0] * 30}px,
+            ${character.position[1] * 30}px,
+            0
+          );
         }
       `}</style>
     </div>

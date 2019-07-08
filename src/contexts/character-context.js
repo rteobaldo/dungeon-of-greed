@@ -5,7 +5,7 @@ const initialState = {
   position: [0, 0]
 };
 
-export const CharacterContext = React.createContext();
+export const CharacterContext = React.createContext(initialState);
 
 export function CharacterContextProvider({ children }) {
   const [character, setCharacter] = useState(initialState);

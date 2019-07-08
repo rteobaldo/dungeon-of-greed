@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import KeyMap from "~/lib/key-mapping";
+import { VALID_KEYMAP } from "~/lib/key-mapping";
+import { useKeyDown } from "~/lib/use-key-listener";
 
 export default function useUIController() {
-  const [keyPressed, setKeyPressed] = useState();
-
-  function keyPressHandler({ key }) {
-    if (Object.values(KeyMap).includes(key)) {
-      setKeyPressed(key);
+  const [keyPressed, setKeyPressed] = useState({
+    e: {
+      timeStamp: 0
     }
+  });
+
+  function handleKeyboard(e) {
+    setKeyPressed(e);
   }
 
-  useEffect(() => {
-    window.addEventListener("keydown", keyPressHandler);
-    return () => {
-      window.removeEventListener("keydown", keyPressHandler);
-    };
-  }, []);
+  useKeyDown(handleKeyboard, VALID_KEYMAP);
 
   return keyPressed;
 }
